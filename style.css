@@ -32,12 +32,39 @@ body::before {
 .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; min-width: 0; }
 .logo span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .logo-img { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; box-shadow: 0 8px 24px rgba(108,92,231,0.4); flex-shrink: 0; }
+
+/* Theme Button */
 .theme-btn {
   width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--border);
   background: var(--bg-2); color: var(--text); cursor: pointer;
   display: grid; place-items: center; transition: transform 0.2s, background 0.2s; flex-shrink: 0;
 }
 .theme-btn:hover { transform: scale(1.08); background: var(--bg-3); }
+
+/* Developer RDX Button */
+.dev-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-dim);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+  height: 42px;
+}
+.dev-btn:hover {
+  background: var(--bg-2);
+  color: var(--accent-2);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
 .card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 20px; padding: 24px; box-shadow: var(--shadow); margin-bottom: 20px; }
 .card h2 { font-size: 18px; font-weight: 700; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .card h2 .badge { font-size: 11px; font-weight: 600; background: var(--bg-3); color: var(--text-dim); padding: 3px 8px; border-radius: 6px; }
@@ -45,18 +72,24 @@ body::before {
 .field label { display: block; font-size: 12px; font-weight: 600; color: var(--text-dim); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
 .field label .opt { text-transform: none; color: var(--text-dim); font-weight: 400; }
 .input-wrap { position: relative; }
-.input-wrap input {
+.input-wrap input, .input-wrap select {
   width: 100%; padding: 14px 14px 14px 44px; border-radius: 12px;
   border: 1.5px solid var(--border); background: var(--bg); color: var(--text);
   font-size: 15px; font-family: inherit; outline: none;
   transition: border 0.2s, box-shadow 0.2s;
 }
-.input-wrap input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(108,92,231,0.15); }
+.input-wrap input:focus, .input-wrap select:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(108,92,231,0.15); }
 .input-wrap .icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-dim); pointer-events: none; }
 .input-prefix { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 14px; pointer-events: none; font-weight: 500; }
-.input-wrap.has-prefix input { padding-left: 130px; }
+.input-wrap.has-prefix input { padding-left: 140px; }
 .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-@media (max-width: 540px) { .row { grid-template-columns: 1fr; } body { padding: 12px; } .card { padding: 18px; } }
+@media (max-width: 540px) { 
+  .row { grid-template-columns: 1fr; } 
+  body { padding: 12px; } 
+  .card { padding: 18px; } 
+  .dev-btn span { display: none; } 
+  .dev-btn { padding: 8px; width: 42px; justify-content: center; } 
+}
 .btn {
   width: 100%; padding: 14px; border-radius: 12px; border: none;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
